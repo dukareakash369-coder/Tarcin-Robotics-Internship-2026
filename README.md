@@ -1,64 +1,49 @@
 # Tarcin Robotics & Embedded Systems Internship 2026
 
-A hands-on collection of robotics, embedded systems, sensor interfacing, motor control, and simulation tasks completed during the Tarcin internship.
+A structured portfolio of ten robotics and embedded-systems tasks completed using VEGA ARIES boards and the Tarcin MbedO environment.
 
-## Repository contents
+## Portfolio map
 
-Each task is organized in its own folder and should include, where available:
-- Source code and a short project overview
-- Components and pin connections
-- Simulation screenshots / observed output
-- Testing notes, limitations, and known issues
+| Local task | Official task | Project | Board / platform | Current evidence status |
+|---|---:|---|---|---|
+| 01 | 141 | Sounding Sentry Guard | ARIES v2 / MbedO | Partially tested |
+| 02 | 125 | Line Following Robot | ARIES v2 / MbedO | Motor behaviour not verified |
+| 03 | — | Robot Wall Follower | ARIES v3 / MbedO | Motor sequence only; wall-following incomplete |
+| 04 | — | SD Card Data Logger | ARIES v3 / MbedO | Partial; SD init mismatch |
+| 05 | — | DC Motor PID Speed | ARIES v3 / MbedO | Preliminary motor test; PID not verified |
+| 06 | 121 | Dual Motor Drive | ARIES v3 / MbedO | Partial; wiring warnings |
+| 07 | 122 | Mobile Robot Left/Right Steering | ARIES v3 / MbedO | Code/report supplied; hardware movement needs verification |
+| 08 | 123 | Robot Speed Control | ARIES v3 / MbedO | PWM behaviour not verified |
+| 09 | 128 | Bluetooth Robot Crash Override | ARIES v3 / MbedO | Runtime/component limitations; not verified |
+| 10 | 155 | OLED Complementary Filter Balancer | ARIES v3 / MbedO | Parser/IMU issue; not verified |
 
-## Task 01 — Sounding Sentry Guard
+> **Evidence policy:** A Serial Monitor message or a circuit screenshot is not, by itself, proof of physical hardware operation. Each task records what was actually observed and what remains unverified.
 
-**Reference:** Aries Advanced — Task 141  
-**Board / environment:** VEGA ARIES v2 / MbedO
+## Standard project layout
 
-### Overview
+Each task has a dedicated folder with a project README and the supplied source/report material. A `Circuit_Screenshot/` folder will be populated with the original screenshots in a follow-up image upload.
 
-A sensor-based security-alert prototype using an HC-SR04 ultrasonic sensor, a PIR motion sensor, a buzzer, and a 16×2 I²C LCD.
+## Skills demonstrated / practised
 
-### Components and connections
+- Embedded C/C++ and microcontroller I/O
+- GPIO, PWM and motor-driver control
+- Sensor interfacing and I²C / UART / SPI concepts
+- Robotics control logic and safety override concepts
+- SD-card data logging
+- OLED display and sensor-fusion concepts
+- Debugging compiler, interpreter, wiring and simulator diagnostics
+- Technical reporting and evidence-based validation
 
-| Component | Signal | Board pin |
-|---|---|---:|
-| HC-SR04 | TRIG | D14 |
-| HC-SR04 | ECHO | D15 |
-| PIR sensor | OUT | D17 |
-| Buzzer | Signal | D12 |
-| 16×2 LCD | I²C | I²C interface |
+## Important limitations
 
-### Observed behaviour
+Some supplied tasks are prototypes or debugging-stage submissions, not completed products. See each task's README for exact pin mappings, known errors, test evidence and next steps. Do not treat the custom pin mappings as verified board pinouts until the actual circuit and board documentation are checked.
 
-- Activating the PIR simulation control produced an intruder-alert message and set the buzzer output HIGH.
-- With the PIR control inactive, the Serial Monitor displayed a secure-status message.
-- One observed alert message reported `Distance: 0 cm` while motion was detected. This value should not be treated as a verified ultrasonic measurement.
+## Images
 
-### Known limitations
+Original MbedO screenshots are intentionally being added separately after the documentation and folder structure are finalized.
 
-- The supplied ARIES v2 simulation/runtime did not provide working support for the Arduino-style `pulseIn()` and `delayMicroseconds()` calls used by the ultrasonic measurement logic.
-- PIR-triggered alert behaviour was observed, but ultrasonic distance measurement was not successfully verified in the supplied simulation.
-- Therefore, the complete sensor system is **partially tested**, not fully validated.
+## Author
 
-### Project files
-
-- Source code: [Task 01 Arduino source](Task-01-Sounding-Sentry-Guard/Code/Task_01_Sounding_Sentry_Guard.ino)
-- MbedO workspace: [Open Task 01 workspace](https://mbedo-dev.tarcin.in/designer/p/8d8c7342-69f2-4169-8a5c-30d8cb8fa5a7/project-1)
-
----
-
-## Validation status
-
-| Area | Status |
-|---|---|
-| PIR alert path | Observed in simulation |
-| Buzzer alert output | Observed in simulation |
-| Ultrasonic distance measurement | Not verified |
-| Complete end-to-end system | Partially tested |
-
-> Simulation observations are documented separately from hardware validation. No physical-hardware test is claimed here.
-
----
-
-*Additional internship tasks will be added as they are reviewed and organized.*
+Akash Arun Dukare  
+Electronics & Telecommunication Engineering  
+GitHub: [dukareakash369-coder](https://github.com/dukareakash369-coder)
